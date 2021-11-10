@@ -6,6 +6,15 @@
 # And then do a run via `website-stalker run`.
 ---
 from: website-stalker-example-github@edjopato.de
+notification_template: |
+  {{#sites}}
+  - {{.}}
+  {{/sites}}
+
+  {{#commit}}
+  https://github.com/EdJoPaTo/website-stalker-example/commit/{{.}}
+  {{/commit}}
+
 sites:
   # Basic example
   - url: "https://edjopato.de/"
