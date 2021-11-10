@@ -10,10 +10,17 @@ on:
 jobs:
   website-stalker:
     runs-on: ubuntu-latest
+    env:
+      WEBSITE_STALKER_FROM: ${{ secrets.WEBSITE_STALKER_FROM }}
     steps:
       - uses: actions/checkout@v2
         with:
           ref: edge
+
+      - name: Check website-stalker config
+        uses: docker://ghcr.io/edjopato/website-stalker:edge
+        with:
+          args: check
 
       - name: Run website-stalker
         uses: docker://ghcr.io/edjopato/website-stalker:edge

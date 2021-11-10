@@ -5,7 +5,6 @@
 # For example run `website-stalker example-config > website-stalker.yaml`.
 # And then do a run via `website-stalker run`.
 ---
-from: website-stalker-example-github@edjopato.de
 notification_template: |
   {{#sites}}
   - {{.}}
